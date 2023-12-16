@@ -17,6 +17,9 @@ function Select({ data = {}, selectTeam }) {
         onChange={(e) => selectTeam(e.target.value)}
         className='select-style'
       >
+        <option value={'default'} selected>
+          default
+        </option>
         {getKeys.map((getKey) => (
           <optgroup label={getKey} key={getKey}>
             {data[getKey].map(({ name }) => optionList(name, getKey))}
