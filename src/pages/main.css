@@ -1,0 +1,14 @@
+.main-container {
+  display: grid;
+  grid-template-columns: min(250px, 20%) auto;
+  height: 100vh;
+}
+
+.main-container aside {
+  border-right: 1px solid black;
+  padding: 0 16px;
+}
+
+.main-container aside > div {
+  margin: 15px 0;
+}

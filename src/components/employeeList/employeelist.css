@@ -1,0 +1,22 @@
+.employeelist-container {
+  display: flex;
+  gap: 10px;
+  margin: 10px 0;
+  border: 1px solid lightgray;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.employeelist-container > div {
+  align-items: start;
+  text-align: left;
+}
+.employeelist-container > div > h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.employeelist-container > div > p {
+  margin: 0;
+  font-size: 12px;
+}
