@@ -14,12 +14,11 @@ function Select({ data = {}, selectTeam }) {
   return (
     <div>
       <select
+        defaultValue='default'
         onChange={(e) => selectTeam(e.target.value)}
         className='select-style'
       >
-        <option value={'default'} selected>
-          default
-        </option>
+        <option value={'default'}>default</option>
         {getKeys.map((getKey) => (
           <optgroup label={getKey} key={getKey}>
             {data[getKey].map(({ name }) => optionList(name, getKey))}
