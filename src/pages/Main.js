@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import {
   ConstructTree,
   NormalizeEmployeeData,
   TreeUpdater,
 } from '../Main.utils';
-import EmployeeChart from '../components/employeeChart/employeeChart';
 import EmployeeList from '../components/employeeList/EmployeeList';
 import Select from '../components/select';
 import './main.css';
@@ -44,6 +43,10 @@ const Main = () => {
     setUsers((prevState) => ({ ...prevState, [selectedTeam]: team }));
   }
 
+  const EmployeeChart = React.lazy(() =>
+    import('../components/employeeChart/employeeChart')
+  );
+
   return (
     <div className='main-container'>
       <aside>
@@ -52,7 +55,9 @@ const Main = () => {
       </aside>
       <div>
         {selectedTeam ? (
-          <EmployeeChart data={constructTree} Updater={Updater} />
+          <Suspense fallback={<div>Loading...</div>}>
+            <EmployeeChart data={constructTree} Updater={Updater} />
+          </Suspense>
         ) : null}
       </div>
     </div>
